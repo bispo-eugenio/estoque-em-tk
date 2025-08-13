@@ -1,3 +1,7 @@
+# OBS 
+* lembrar de alterar o ruff e adiciona regra de lint;
+* instalar o pyright ou usar o próprio pylance
+
 ## About
 
 ...
@@ -18,6 +22,7 @@
     <li>Botão de help</li>
     <li>CRUD de usuário</li>
     <li>CRUD de produto</li>
+    <li>Dashboard</li>
 </ol>
 
 
