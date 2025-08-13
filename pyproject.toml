@@ -1,0 +1,15 @@
+[project]
+name = "teste"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.3.1",
+    "ruff>=0.12.8",
+    "ttkbootstrap>=1.14.2",
+]
+
+
+[tool.ruff]
+extend-exclude = ["src/teste.py"]
