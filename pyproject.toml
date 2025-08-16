@@ -1,15 +1,49 @@
 [project]
-name = "teste"
+name = "estoque-tkk"
 version = "0.1.0"
-description = "Add your description here"
+description = "gerenciamento de estoque feito em tkinter"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pandas>=2.3.1",
-    "ruff>=0.12.8",
     "ttkbootstrap>=1.14.2",
+    "pillow>=10.4.0",
 ]
 
+[project.optional-dependencies]
+dev =["ruff", "pyright>=1.1.402",]
+
+
+[project.scripts]
+qrcode_generator = "main:main"
+
+# ===================== #
+# Configurações do Ruff #
+# ===================== #
 
 [tool.ruff]
-extend-exclude = ["src/teste.py"]
+line-length = 88 
+target-version = "py313"
+fix = true
+show-fixes = true
+indent-width = 4 
+extend-include = ["src/"]
+exclude = ["venv", ".venv", "env", ".env", "node_modules", "__pycache__"]
+
+[tool.ruff.lint]
+select = [
+    "ERA", 
+    "B",
+    "A",
+    "COM",
+    "BLE",
+    "SIM",
+    "E",
+    "RET",
+    "UP",
+    "N",
+    "Q",
+    "ANN"
+]
+
+ignore =["COM819", "ANN002", "ANN003"]
