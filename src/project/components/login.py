@@ -1,4 +1,5 @@
 from tkinter import Misc, Frame, Tk, PhotoImage, Label
+from pathlib import Path
 from PIL import ImageTk, Image
 from utils import position_window
 from constants import WIDTH, HEIGHT, LOGIN_IMAGE
@@ -29,13 +30,29 @@ class LoginRoot(Tk):
         self.geometry(f"{WIDTH}x{HEIGHT}+{self._position_x}+{self._position_y}")
         self.resizable(False, False)
 
+class ImageLabel(Label):
+    def __init__(self) -> None:
+        super().__init__()
+        self._image = None
+        
+        self.create_image(LOGIN_IMAGE)
+        self._config()
+
+    def _config(self) -> None:
+        self.config(
+            background= "#06D6A0",
+            image= f"{self._image}",
+        )
+    
+    def create_image(self, image_login: Path) -> None:
+        self._image = Image.open(image_login)
+        self._image = self._image.resize((250,250))
+        self._image = ImageTk.PhotoImage(self._image)
+        
+
 if __name__ == "__main__":
     root = LoginRoot()
     app = LoginWindow(root)
-    image = Image.open(LOGIN_IMAGE)
-    image = image.resize((250, 250))
-    image = ImageTk.PhotoImage(image)
-    label = Label(image=image, background="#06D6A0")
-    label.image = image #type: ignore
+    label = ImageLabel()
     label.grid(row=0, column=0)
     app.mainloop()  
