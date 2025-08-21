@@ -8,6 +8,7 @@ dependencies = [
     "pandas>=2.3.1",
     "ttkbootstrap>=1.14.2",
     "pillow>=10.4.0",
+    "customtkinter>=5.2.2",
 ]
 
 [project.optional-dependencies]
