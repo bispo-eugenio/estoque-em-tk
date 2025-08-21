@@ -2,11 +2,12 @@ from tkinter import Label
 from constants import LOGIN_IMAGE
 from PIL import Image, ImageTk
 from pathlib import Path
+from typing import Any
 
 class ImageLabel(Label):
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, master: Any = None) -> None: #noqa: ANN401
+        super().__init__(master)
         self._image = None
         
         self.create_image(LOGIN_IMAGE)
