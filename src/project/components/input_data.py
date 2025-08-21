@@ -34,7 +34,7 @@ class InputData(Entry):
             self["fg"] = self._default_color
 
     def _foc_out(self, *args: Any) -> None: #noqa: ANN401
-        if not empty(self.get()):
+        if empty(self.get()):
             self.create_placeholder()
 
 if __name__ == "__main__":
